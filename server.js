@@ -8,18 +8,21 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 
-app.get('/', function(req,res) {
-    res.sendFile(__dirname + '/public/index.html');
-});
+//app.get('/', function(req,res) {
+//    res.sendFile(__dirname + '/public/index.html');
+//});
 
 var myState = "";
 
-app.get('/submit', function (req, res) {
-    myState = req.query.q;
-    console.log("submit", myState);
+app.get('/', function (req, res) {
+    if(req.query.q){
+        myState = req.query.q;
+        console.log("submit", myState);
+    }
     res.send(myState);
-})
 
+})
+/*
 app.get(/^(.+)$/, function(req, res) { //file server for the rest of the files in /public
                                        //see comments at http://stackoverflow.com/questions/9443840/basic-webserver-with-node-js-and-express-for-serving-html-file-and-assets
     try{
@@ -28,7 +31,7 @@ app.get(/^(.+)$/, function(req, res) { //file server for the rest of the files i
         console.log("file err ", err);
     }
 
-});
+});*/
 
 
 
