@@ -16,6 +16,7 @@ var myState = "";
 
 app.get('/submit', function (req, res) {
     myState = req.query.q;
+    console.log("submit", myState);
     res.send(myState);
 })
 
